@@ -31,28 +31,28 @@ add_action('after_setup_theme', 'webdescode_theme_updater');
  *
  * @package WordPress
  * @subpackage Webdescode
- * @since Webdescode 2.0
+ * @since Webdescode 2.0.1
  */
 require get_template_directory() . '/inc/image-styles.php';
 require get_template_directory() . '/inc/customizer.php';
 // Enqueue styles
 function enqueue_theme_styles() {
-    wp_enqueue_style('prism', get_template_directory_uri() . '/prism/prism.css', array(), '2.0', 'all');
+    wp_enqueue_style('prism', get_template_directory_uri() . '/prism/prism.css', array(), '2.0.1', 'all');
     wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/main.css', array(), '2.1', 'all');
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap', array(), null);
-    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/fontawesome/all.min.css', array(), '2.0', 'all');
+    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/fontawesome/all.min.css', array(), '2.0.1', 'all');
     wp_enqueue_style('webdescode-style', get_stylesheet_uri());
-    wp_enqueue_style('webdescode-block-styles', get_template_directory_uri() . '/assets/css/block-styles.css', array(), '2.0');
-    wp_enqueue_style('image-styles', get_template_directory_uri() . '/assets/css/image-styles.css', array(), '2.0');
+    wp_enqueue_style('webdescode-block-styles', get_template_directory_uri() . '/assets/css/block-styles.css', array(), '2.0.1');
+    wp_enqueue_style('image-styles', get_template_directory_uri() . '/assets/css/image-styles.css', array(), '2.0.1');
 }
 add_action('wp_enqueue_scripts', 'enqueue_theme_styles');
 
 // Enqueue scripts
 function enqueue_theme_scripts() {
-    wp_enqueue_script('prism', get_template_directory_uri() . '/prism/prism.js', array('jquery'), '2.0', true);
-    wp_enqueue_script('app-script', get_template_directory_uri() . '/assets/main.js', array('jquery'), '2.0', true);
-    wp_enqueue_script('fontawesome-js', get_template_directory_uri() . '/fontawesome/all.min.js', array(), '2.0', true);
-    wp_enqueue_script('theme-customizer', get_template_directory_uri() . '/assets/js/theme-customizer.js', array('jquery', 'customize-preview'), '2.0', true);
+    wp_enqueue_script('prism', get_template_directory_uri() . '/prism/prism.js', array('jquery'), '2.0.1', true);
+    wp_enqueue_script('app-script', get_template_directory_uri() . '/assets/main.js', array('jquery'), '2.0.1', true);
+    wp_enqueue_script('fontawesome-js', get_template_directory_uri() . '/fontawesome/all.min.js', array(), '2.0.1', true);
+    wp_enqueue_script('theme-customizer', get_template_directory_uri() . '/assets/js/theme-customizer.js', array('jquery', 'customize-preview'), '2.0.1', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_theme_scripts');
 
