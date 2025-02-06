@@ -1,0 +1,96 @@
+// Variables for common styles
+$border-color: #000;
+$hover-border-color: #ff6347;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$hover-shadow-color: rgba(0, 0, 0, 0.2);
+$transition-time: 0.3s;
+$grayscale-hover: 0%;
+
+// Default Image Style
+.wp-block-image {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+// Rounded Image Style
+.wp-block-image {
+  img.rounded {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+// Image with Shadow
+.wp-block-image {
+  img.shadow {
+    box-shadow: 0px 4px 6px $shadow-color;
+    transition: box-shadow $transition-time ease;
+
+    &:hover {
+      box-shadow: 0px 8px 12px $hover-shadow-color;
+    }
+  }
+}
+
+// Circular Image Style
+.wp-block-image {
+  img.circle {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+}
+
+// Image with Border
+.wp-block-image {
+  img.bordered {
+    border: 5px solid $border-color;
+    padding: 5px;
+    transition: all $transition-time ease;
+
+    &:hover {
+      border-color: $hover-border-color;
+    }
+  }
+}
+
+// Hover Zoom Effect
+.wp-block-image {
+  img.zoom {
+    transition: transform $transition-time ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Grayscale Image
+.wp-block-image {
+  img.grayscale {
+    filter: grayscale(100%);
+    transition: filter $transition-time ease;
+
+    &:hover {
+      filter: grayscale($grayscale-hover);
+    }
+  }
+}
+
+// Polaroid Style Image
+.wp-block-image {
+  img.polaroid {
+    border: 10px solid #fff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    transform: rotate(5deg);
+    transition: transform $transition-time ease, box-shadow $transition-time ease;
+
+    &:hover {
+      transform: rotate(0deg);
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

@@ -8,7 +8,6 @@
 img {
   margin: 0;
   padding: 0;
-  width: 100%;
   height: auto;
 }
 
@@ -49,13 +48,13 @@ body {
   overflow-x: hidden;
 }
 
-.breadcrumbss {
+.breadcrumbs {
   max-width: 1281px;
   width: 100%;
   margin: 0 auto;
   padding-left: 8px;
 }
-.breadcrumbss #breadcrumbs {
+.breadcrumbs #breadcrumbs {
   padding-bottom: 0px;
   margin-left: 8px;
   margin-right: 8px;

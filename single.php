@@ -7,36 +7,22 @@
                 <?php while (have_posts()): the_post(); ?>
                     <div id="post-<?php the_ID(); ?>" <?php post_class('single_postWP'); ?>>
                         <h1><?php the_title(); ?></h1>
-                        
-                        <?php
-                            // Include post meta if the template exists
-                            if (locate_template('post_meta.php')) {
-                                get_template_part('post_meta');
-                            } else {
-                                echo '<div class="post-meta-default">Default post meta content here.</div>';
-                            }
-                        ?>
-
-                        <?php the_content(); ?>
+                         <?php get_template_part('post_meta'); ?>
+                        <?php echo wpautop(get_the_content()); ?>
 
                         <!-- Pagination for multi-page content -->
                         <?php
-                            wp_link_pages(array(
-                                'before' => '<div class="page-links">' . esc_html__('Pages:', 'webdescode'),
-                                'after'  => '</div>',
-                            ));
+                        wp_link_pages(array(
+                            'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__('Pages:', 'webdescode') . '</span>',
+                            'after'       => '</div>',
+                            'link_before' => '<span>',
+                            'link_after'  => '</span>',
+                        ));
                         ?>
 
                         <!-- Related Posts Section -->
                         <div class="related_post_wp">
-                            <?php
-                                // Check if related_post_section.php exists and include it
-                                if (locate_template('related_post_section.php')) {
-                                    get_template_part('related_post_section');
-                                } else {
-                                    echo '<div class="related-post-default">Related posts will appear here.</div>';
-                                }
-                            ?>
+                            <?php get_template_part('related_post_section'); ?>
                         </div>
 
                         <!-- Comments Section -->

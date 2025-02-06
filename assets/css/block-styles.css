@@ -1,10 +1,69 @@
-/* Block Styles for Custom Blocks */
+/* === Custom Button Style === */
 .wp-block-button.is-style-webdescode-button-style a {
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: #fff;
+  background-color: #000;
   border-radius: 10px;
-  transition: all ease-in-out;
+  padding: 12px 24px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .wp-block-button.is-style-webdescode-button-style a:hover {
-  background-color: rgb(15, 42, 58);
+  background-color: #0f2a3a;
+  transform: translateY(-2px);
+}
+.wp-block-button.is-style-webdescode-gradient a {
+  background: linear-gradient(45deg, #ff6b6b, #6b6bff);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.wp-block-button.is-style-webdescode-gradient a:hover {
+  background: linear-gradient(45deg, #6b6bff, #ff6b6b);
+  transform: scale(1.05);
+}
+
+/* === Fancy Heading Style === */
+.wp-block-heading.is-style-webdescode-fancy-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff8c00, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === Bordered Quote Style === */
+.wp-block-quote.is-style-webdescode-bordered {
+  border-left: 5px solid #ff6b6b;
+  padding: 15px 20px;
+  font-style: italic;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* === Shadow Image Style === */
+.wp-block-image.is-style-webdescode-shadow img {
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+.wp-block-image.is-style-webdescode-shadow img:hover {
+  transform: scale(1.05);
+}
+
+/* === Card Style for Group Blocks === */
+.wp-block-group.is-style-webdescode-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.wp-block-group.is-style-webdescode-card:hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
 }/*# sourceMappingURL=block-styles.css.map */

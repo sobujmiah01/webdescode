@@ -1,6 +1,6 @@
 <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
     <!-- Visible Label for the Search Field -->
-    <label for="search-field" class="search-label">
+    <label for="search-field" class="screen-reader-text">
         <?php echo esc_html_x('Search for:', 'label', 'webdescode'); ?>
     </label>
     
@@ -12,7 +12,7 @@
         placeholder="<?php echo esc_attr_x('Search …', 'placeholder', 'webdescode'); ?>" 
         value="<?php echo esc_attr(get_search_query()); ?>" 
         name="s" 
-        aria-label="<?php echo esc_attr_x('Search query', 'label for search field', 'webdescode'); ?>" 
+        autocomplete="off"
         required
     />
     

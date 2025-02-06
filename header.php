@@ -2,16 +2,12 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="description" content="<?php echo is_single() || is_page() ? get_the_excerpt() : bloginfo('description'); ?>">
-    <meta name="keywords" content="<?php
-        if (is_single()) {
-            $post_tags = wp_get_post_tags(get_the_ID(), array('fields' => 'names'));
-            echo implode(', ', $post_tags);
-        } elseif (is_page()) {
-            echo 'Your default page keywords here';
-        } else {
-            echo 'website design, development, theme design development, SEO, digital marketing';
-        }
+    <meta name="description" content="<?php 
+        if (is_single() || is_page()) { 
+            echo esc_attr(wp_strip_all_tags(get_the_excerpt() ?: get_bloginfo('description'))); 
+        } else { 
+            echo esc_attr(get_bloginfo('description')); 
+        } 
     ?>">
     <meta name="author" content="<?php bloginfo('name'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,16 +16,20 @@
 </head>
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+
     <header class="web_header">
         <div class="header_wrapper header-content">
             <div class="header_top">
-                <!-- Top Header Menu -->
                 <nav>
-                    <?php
+                    <?php 
+                    if (has_nav_menu('header_menu')) {
                         wp_nav_menu(array(
                             'theme_location' => 'header_menu',
-                            'container'      => 'ul',
+                            'container'      => 'nav',
+                            'container_class'=> 'header-navigation',
+                            'aria-label'     => esc_attr__('Header Menu', 'webdescode'),
                         ));
+                    }
                     ?>
                 </nav>
                 <div class="social_icon">
@@ -37,7 +37,6 @@
                 </div>
             </div>
             <div class="Header_main_menu">
-                <!-- Main Header Section -->
                 <div class="menu_wrapper">
                     <div class="logo_menu_wrapper">
                         <a class="web_logoL" href="<?php echo esc_url(home_url('/')); ?>">
@@ -61,20 +60,18 @@
                     </div>
                     <div class="search_and_rs">
                         <?php get_search_form(); ?>
-                        <!-- Responsive Menu Icon -->
-                        <div class="icon_menu">
+                        <button class="menu-toggle" aria-expanded="false">
+                            <span class="screen-reader-text"><?php esc_html_e('Toggle Menu', 'webdescode'); ?></span>
                             <i class="fa fa-bars" aria-hidden="true"></i>
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <div class="breadcrumbss">
-        <?php
-        if (function_exists('yoast_breadcrumb')) {
+
+    <div class="breadcrumbs">
+        <?php if (function_exists('yoast_breadcrumb')) {
             yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-        }
-        ?>
+        } ?>
     </div>

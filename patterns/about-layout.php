@@ -1,14 +1,12 @@
 <?php
-// About Layout Pattern.
-if ( ! function_exists( 'webdescode_register_about_layout_pattern' ) ) :
-    function webdescode_register_about_layout_pattern() {
-        register_block_pattern(
-            'webdescode/about-layout',
-            array(
-                'title'       => __( 'About Layout', 'webdescode' ),
-                'description' => __( 'An about section layout with heading and paragraph.', 'webdescode' ),
-                'categories'  => array( 'webdescode-layouts' ),
-                'content'     => '<!-- wp:group {"layout":{"type":"constrained"}} -->
+function webdescode_register_about_layout_pattern() {
+    register_block_pattern(
+        'webdescode/about-layout', // This is the slug
+        array(
+            'title'       => __('About Layout', 'webdescode'),
+            'description' => __('A simple about page layout.', 'webdescode'),
+            'categories'  => array('webdescode-layouts'),
+            'content'     => '<!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:paragraph -->
@@ -108,9 +106,8 @@ if ( ! function_exists( 'webdescode_register_about_layout_pattern' ) ) :
 
 <!-- wp:paragraph -->
 <p>Thank you for choosing WebDesCode. Together, let’s learn, grow, and create amazing things!</p>
-<!-- /wp:paragraph -->',
-            )
-        );
-    }
-endif;
-add_action( 'init', 'webdescode_register_about_layout_pattern' );
+<!-- /wp:paragraph -->'
+        )
+    );
+}
+add_action('init', 'webdescode_register_about_layout_pattern');

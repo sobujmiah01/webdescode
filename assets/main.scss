@@ -7,7 +7,6 @@
 img {
     margin: 0;
     padding: 0;
-    width: 100%;
     height: auto;
 }
 a {
@@ -45,7 +44,7 @@ $a_color:#000;
 $ah_color:#080808;
 $hText:#ff0000;
 $border_color:rgba(155,155,155,0.15);
-.breadcrumbss {
+.breadcrumbs {
     max-width: 1281px;
     width: 100%;
     margin: 0 auto;
@@ -1163,7 +1162,7 @@ Contact Page
 .post-meta {
     margin-bottom: 0.4em;
     border-bottom: 1px solid rgba(155, 155, 155, 0.15);
-    display: inline-block
+    display: inline-block;
 }
 /* Style for the caption container */
 .wp-caption {

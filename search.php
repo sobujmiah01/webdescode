@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
-<main class="main_article_post">
+<main class="main_article_post" role="search">
     <article class="web_post_wrapper">
-        <h2 class="search_heading"><?php printf(esc_html__('Search Results for: %s', 'webdescode'), get_search_query()); ?></h2>
+        <h2 class="search_heading" aria-label="<?php esc_attr_e('Search Results', 'webdescode'); ?>">
+        <?php printf(esc_html__('Search Results for: %s', 'webdescode'), get_search_query()); ?>
+        </h2>
         <div class="web_post_inner">
             <?php get_template_part('loop_post'); ?>
         </div>
