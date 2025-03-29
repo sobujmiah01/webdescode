@@ -18,38 +18,72 @@ jQuery(document).ready(function ($) {
         });
     });
 });
-/* search popup */
+/* Search Popup Functionality */
 document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('search-input');
+    // Elements
+    const searchForm = document.querySelector('.search-form');
+    const searchInput = document.querySelector('.search-field');
     const searchPopup = document.getElementById('search-popup');
-    const closeButton = document.getElementById('search-popup-close');
+    const searchPopupClose = document.getElementById('search-popup-close');
+    const popupSearchInput = document.querySelector('.search-popup-field');
     
-    // Open popup when search input is clicked
-    searchInput.addEventListener('click', function(e) {
+    // Open popup when clicking search input
+    if(searchInput) {
+      searchInput.addEventListener('click', function(e) {
         e.preventDefault();
-        searchPopup.style.display = 'flex';
-    });
+        searchPopup.classList.add('active');
+        popupSearchInput.focus();
+      });
+    }
     
-    // Open popup when Enter is pressed in search input
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            searchPopup.style.display = 'flex';
-        }
-    });
+    // Open popup when submitting main search form
+    if(searchForm) {
+      searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        searchPopup.classList.add('active');
+        popupSearchInput.value = searchInput.value;
+        popupSearchInput.focus();
+      });
+    }
     
-    // Close popup when close button is clicked
-    closeButton.addEventListener('click', function() {
-        searchPopup.style.display = 'none';
-    });
+    // Close popup
+    if(searchPopupClose) {
+      searchPopupClose.addEventListener('click', function() {
+        searchPopup.classList.remove('active');
+      });
+    }
     
-    // Close popup when clicking outside the search form
+    // Close when clicking outside
     searchPopup.addEventListener('click', function(e) {
-        if (e.target === searchPopup) {
-            searchPopup.style.display = 'none';
-        }
+      if(e.target === searchPopup) {
+        searchPopup.classList.remove('active');
+      }
     });
-});
+    
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape' && searchPopup.classList.contains('active')) {
+        searchPopup.classList.remove('active');
+      }
+      
+      // Open with Ctrl+K or Cmd+K
+      if((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchPopup.classList.add('active');
+        popupSearchInput.focus();
+      }
+    });
+    
+    // Submit popup form
+    const popupForm = document.querySelector('.search-popup-form');
+    if(popupForm) {
+      popupForm.addEventListener('submit', function(e) {
+        if(popupSearchInput.value.trim() === '') {
+          e.preventDefault();
+        }
+      });
+    }
+  });
 /* 404 page animation */
 // Add some interactive animations
 document.addEventListener('DOMContentLoaded', function() {

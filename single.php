@@ -2,7 +2,7 @@
 
 <main class="main_article_post">
     <article class="web_post_wrapper">
-        <div class="web_post_inner">
+        <div class="web_post_inner singleP">
             <?php if (have_posts()): ?>
                 <?php while (have_posts()): the_post(); ?>
                     <div id="post-<?php the_ID(); ?>" <?php post_class('single_postWP'); ?>>

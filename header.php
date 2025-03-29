@@ -16,7 +16,6 @@
 </head>
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-
     <header class="web_header">
         <div class="header_wrapper header-content">
             <div class="header_top">
@@ -72,7 +71,6 @@
             </div>
         </div>
     </header>
-
     <div class="breadcrumbs">
         <?php if (function_exists('yoast_breadcrumb')) {
             yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
