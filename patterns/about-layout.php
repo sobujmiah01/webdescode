@@ -6,6 +6,7 @@ function webdescode_register_about_layout_pattern() {
             'title'       => __('About Layout', 'webdescode'),
             'description' => __('A simple about page layout.', 'webdescode'),
             'categories'  => array('webdescode-layouts'),
+            'slug'        => 'webdescode/about-layout', // Add this line
             'content'     => '<!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->

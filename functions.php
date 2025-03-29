@@ -1,29 +1,5 @@
 <?php
 // Theme setup and functions
-
-// Include the theme updater
-require_once get_template_directory() . '/updater.php';
-
-// Add theme update functionality
-function webdescode_theme_updater() {
-    $config = array(
-        'slug'               => 'webdescode', // Theme slug
-        'proper_folder_name' => 'webdescode', // Folder name
-        'api_url'            => 'https://api.github.com/repos/sobujmiah01/webdescode', // GitHub API URL
-        'raw_url'            => 'https://raw.githubusercontent.com/sobujmiah01/webdescode/main', // Raw content URL
-        'github_url'         => 'https://github.com/sobujmiah01/webdescode', // GitHub repository URL
-        'zip_url'            => 'https://github.com/sobujmiah01/webdescode/archive/main.zip', // ZIP download URL
-        'sslverify'          => true, // Verify SSL
-        'requires'           => '6.0', // Minimum WP version
-        'tested'             => '6.5', // Tested WP version
-        'readme'             => 'README.md', // Readme file
-        'version'            => '1.0.0', // Current theme version
-    );
-
-    new WP_GitHub_Updater($config);
-}
-add_action('after_setup_theme', 'webdescode_theme_updater');
-
 /**
  * Webdescode functions and definitions.
  *
@@ -41,7 +17,7 @@ function enqueue_theme_styles() {
     wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/main.css', array(), '2.1', 'all');
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap', array(), null);
     wp_enqueue_style('fontawesome', get_template_directory_uri() . '/fontawesome/all.min.css', array(), '2.0.2', 'all');
-    wp_enqueue_style('webdescode-style', get_stylesheet_uri());
+    wp_enqueue_style('webdescode-style', get_stylesheet_uri(), '2.0.2', 'all');
     wp_enqueue_style('webdescode-block-styles', get_template_directory_uri() . '/assets/css/block-styles.css', array(), '2.0.2');
     wp_enqueue_style('image-styles', get_template_directory_uri() . '/assets/css/image-styles.css', array(), '2.0.2');
 }
@@ -306,13 +282,7 @@ function webdescode_register_block_pattern_categories() {
     );
 }
 add_action('init', 'webdescode_register_block_pattern_categories');
-
-// Include block patterns
-require get_template_directory() . '/patterns/two-column-layout.php';
 require get_template_directory() . '/patterns/about-layout.php';
-
-
-
 // Remove block styles (commented out)
 /* function custom_remove_block_styles() {
     if (!is_admin()) {

@@ -59,10 +59,13 @@
                         ?>
                     </div>
                     <div class="search_and_rs">
-                        <?php get_search_form(); ?>
+                        <div class="search_box">
+                            <?php get_search_form(); ?>
+                        </div>
                         <button class="menu-toggle" aria-expanded="false">
                             <span class="screen-reader-text"><?php esc_html_e('Toggle Menu', 'webdescode'); ?></span>
                             <i class="fa fa-bars" aria-hidden="true"></i>
+                            <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
                 </div>

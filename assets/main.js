@@ -1,29 +1,4 @@
 jQuery(document).ready(function ($) {
-    // Initial UI setup
-    function updateUI() {
-        const isMobile = window.matchMedia("(max-width: 935px)").matches;
-        if (isMobile) {
-            $(".main_navigation").hide();
-            $(".fa-bars").show();
-            $(".fas.fa-search").show();
-        } else {
-            $(".main_navigation").show();
-            $(".fa-bars, .fa-xmark").hide();
-            $(".fas.fa-search").hide();
-        }
-    }
-
-    // Toggle navigation on mobile
-    function toggleNavigation() {
-        $(".fa-bars, .fa-xmark").toggle();
-        $(".main_navigation").toggle(200);
-    }
-
-    // Toggle search area on mobile
-    function searchRes() {
-        $(".search_aria").toggle(200);
-    }
-
     // Copy to clipboard functionality for code blocks
     const codeBlocks = document.querySelectorAll('.preformatted-text.line-numbers');
     codeBlocks.forEach(codeBlock => {
@@ -42,68 +17,90 @@ jQuery(document).ready(function ($) {
             }, 4000);
         });
     });
-
-    // Comment form validation
-    $('#commentform').on('submit', function (e) {
-        let valid = true;
-        const nameField = $('#author');
-        const emailField = $('#email');
-        const commentField = $('#comment');
-
-        // Reset placeholders
-        nameField.attr('placeholder', 'Name');
-        emailField.attr('placeholder', 'Email');
-        commentField.attr('placeholder', 'Comment');
-
-        // Validate Name
-        if (nameField.val().trim() === '') {
-            nameField.val('');
-            nameField.attr('placeholder', 'Enter your name');
-            valid = false;
-        }
-
-        // Validate Email
-        const emailValue = emailField.val().trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailValue === '') {
-            emailField.val('');
-            emailField.attr('placeholder', 'Enter your email');
-            valid = false;
-        } else if (!emailRegex.test(emailValue)) {
-            emailField.val('');
-            emailField.attr('placeholder', 'Enter a valid email');
-            valid = false;
-        }
-
-        // Validate Comment
-        if (commentField.val().trim() === '') {
-            commentField.val('');
-            commentField.attr('placeholder', 'Comment cannot be empty');
-            valid = false;
-        }
-
-        // Prevent form submission if invalid
-        if (!valid) {
-            e.preventDefault();
-        }
-    });
-
-    // Event handlers for navigation and search buttons
-    $(document).on("click", ".fa-bars, .fa-xmark", function () {
-        toggleNavigation();
-    });
-
-    $(document).on('click', '.fas.fa-search', function () {
-        searchRes();
-    });
-
-    // Resize and orientation change handler with debounce
-    let resizeTimer;
-    $(window).on("resize orientationchange", function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(updateUI, 200); // Debounced resize handler
-    });
-
-    // Initial UI setup
-    updateUI();
 });
+/* search popup */
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('search-input');
+    const searchPopup = document.getElementById('search-popup');
+    const closeButton = document.getElementById('search-popup-close');
+    
+    // Open popup when search input is clicked
+    searchInput.addEventListener('click', function(e) {
+        e.preventDefault();
+        searchPopup.style.display = 'flex';
+    });
+    
+    // Open popup when Enter is pressed in search input
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchPopup.style.display = 'flex';
+        }
+    });
+    
+    // Close popup when close button is clicked
+    closeButton.addEventListener('click', function() {
+        searchPopup.style.display = 'none';
+    });
+    
+    // Close popup when clicking outside the search form
+    searchPopup.addEventListener('click', function(e) {
+        if (e.target === searchPopup) {
+            searchPopup.style.display = 'none';
+        }
+    });
+});
+/* 404 page animation */
+// Add some interactive animations
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('.suggested-links a');
+    
+    links.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+/* menu */
+/* JavaScript for Menu Toggle */
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main_navigation');
+    const header = document.querySelector('.Header_main_menu');
+  
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        header.classList.toggle('mobile-menu-active');
+        document.body.style.overflow = isExpanded ? '' : 'hidden';
+      });
+  
+      // Close menu when clicking on links (mobile only)
+      const navLinks = document.querySelectorAll('.main_navigation a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth < 768) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            header.classList.remove('mobile-menu-active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    }
+  
+    // Close menu when clicking outside (mobile only)
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth < 768 && 
+          !e.target.closest('.menu-toggle') && 
+          !e.target.closest('.main_navigation')) {
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        if (header) header.classList.remove('mobile-menu-active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
