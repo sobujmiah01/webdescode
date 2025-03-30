@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer_wrap">
     <div class="footer_inner">
         <section class="footer_top_wrap">
             <?php dynamic_sidebar('footer_top'); ?>

@@ -1,12 +1,11 @@
 <?php
 function webdescode_register_about_layout_pattern() {
     register_block_pattern(
-        'webdescode/about-layout', // This is the slug
+        'webdescode/about-layout', // This is the slug (first parameter)
         array(
             'title'       => __('About Layout', 'webdescode'),
             'description' => __('A simple about page layout.', 'webdescode'),
             'categories'  => array('webdescode-layouts'),
-            'slug'        => 'webdescode/about-layout', // Add this line
             'content'     => '<!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column -->
@@ -23,7 +22,7 @@ function webdescode_register_about_layout_pattern() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Hi, I’m <strong>Sobuj Miah</strong>, the author and creator of WebDesCode. With a deep passion for technology and years of experience in web design, development, and digital marketing, I started this blog to share knowledge and build a community of like-minded professionals. My journey spans across platforms like <strong>YouTube</strong>, <strong>Upwork</strong>, <strong>Fiverr</strong>, <strong>Freelancer</strong>, and <strong>PeoplePerHour</strong>, where I’ve honed my skills and gained invaluable experience.</p>
+<p>Hi, I\'m <strong>Sobuj Miah</strong>, the author and creator of WebDesCode. With a deep passion for technology and years of experience in web design, development, and digital marketing, I started this blog to share knowledge and build a community of like-minded professionals. My journey spans across platforms like <strong>YouTube</strong>, <strong>Upwork</strong>, <strong>Fiverr</strong>, <strong>Freelancer</strong>, and <strong>PeoplePerHour</strong>, where I\'ve honed my skills and gained invaluable experience.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -41,7 +40,7 @@ function webdescode_register_about_layout_pattern() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>WebDesCode is more than just a blog—it’s a thriving community powered by a dedicated team of over <strong>20 professionals</strong>, including a responsive support team. Together, we work tirelessly to create valuable content, tutorials, and insights to help you achieve your goals.</p>
+<p>WebDesCode is more than just a blog—it\'s a thriving community powered by a dedicated team of over <strong>20 professionals</strong>, including a responsive support team. Together, we work tirelessly to create valuable content, tutorials, and insights to help you achieve your goals.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -57,7 +56,7 @@ function webdescode_register_about_layout_pattern() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Our journey is backed by years of practical experience in the industry. Whether you’re a beginner or an expert, you’ll find something valuable here to sharpen your skills and stay ahead in the dynamic fields of web design and SEO</p>
+<p>Our journey is backed by years of practical experience in the industry. Whether you\'re a beginner or an expert, you\'ll find something valuable here to sharpen your skills and stay ahead in the dynamic fields of web design and SEO</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -69,7 +68,7 @@ function webdescode_register_about_layout_pattern() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>At WebDesCode, we believe in continuous learning and growth. Our blog is designed to help you further enhance your skills, whether you’re looking to master the latest web design trends, optimize your SEO strategy, or refine your development expertise. We’re here to guide you every step of the way.</p>
+<p>At WebDesCode, we believe in continuous learning and growth. Our blog is designed to help you further enhance your skills, whether you\'re looking to master the latest web design trends, optimize your SEO strategy, or refine your development expertise. We\'re here to guide you every step of the way.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -81,7 +80,7 @@ function webdescode_register_about_layout_pattern() {
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>We’d love for you to be a part of our journey! Here’s how you can get involved:</p>
+<p>We\'d love for you to be a part of our journey! Here\'s how you can get involved:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list -->
@@ -106,7 +105,7 @@ function webdescode_register_about_layout_pattern() {
 <!-- /wp:group -->
 
 <!-- wp:paragraph -->
-<p>Thank you for choosing WebDesCode. Together, let’s learn, grow, and create amazing things!</p>
+<p>Thank you for choosing WebDesCode. Together, let\'s learn, grow, and create amazing things!</p>
 <!-- /wp:paragraph -->'
         )
     );

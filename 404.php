@@ -1,17 +1,13 @@
 <?php get_header(); ?>
+
 <div class="error-404">
     <div class="error-content">
         <h1><?php esc_html_e('Oops! Page not found.', 'webdescode'); ?></h1>
         <p><?php esc_html_e("We're sorry, but the page you're looking for might have been removed or doesn't exist.", 'webdescode'); ?></p>
         <p><?php esc_html_e("Let's get you back on track:", 'webdescode'); ?></p>
         
-        <!-- Simple Search Form (no popup) -->
-        <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
-            <label>
-                <input type="search" class="search-field" placeholder="<?php esc_attr_e('Search...', 'webdescode'); ?>" value="" name="s">
-            </label>
-            <input type="submit" class="search-submit" value="<?php esc_attr_e('Search', 'webdescode'); ?>">
-        </form>
+        <!-- Use WordPress search form function -->
+        <?php get_search_form(); ?>
 
         <!-- Call to Action Links -->
         <p>
@@ -33,7 +29,7 @@
                 'services' => __('Services', 'webdescode')
             );
             
-            // Check if WooCommerce is active before trying to use its functions
+            // Check if WooCommerce is active
             if (class_exists('WooCommerce')) {
                 $suggested_pages['shop'] = __('Shop', 'webdescode');
             }
@@ -48,4 +44,5 @@
         </div>
     </div>
 </div>
+
 <?php get_footer(); ?>

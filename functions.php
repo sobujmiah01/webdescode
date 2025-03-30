@@ -282,6 +282,8 @@ function webdescode_register_block_pattern_categories() {
     );
 }
 add_action('init', 'webdescode_register_block_pattern_categories');
+
+// Include pattern files
 require get_template_directory() . '/patterns/about-layout.php';
 // Remove block styles (commented out)
 /* function custom_remove_block_styles() {
