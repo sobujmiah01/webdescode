@@ -290,9 +290,16 @@ p {
   transition: all 0.3s ease;
   position: relative;
 }
+@media (max-width: 576px) {
+  .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-container {
+    padding: 15px;
+  }
+}
 .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-form {
   display: flex;
   align-items: center;
+  max-width: 100%;
+  width: 100%;
 }
 .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-form .search-popup-field {
   flex: 1;
@@ -301,6 +308,8 @@ p {
   border: 2px solid #dddddd;
   border-radius: 5px 0 0 5px;
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
 }
 .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-form .search-popup-field:focus {
   outline: none;
@@ -316,6 +325,11 @@ p {
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
+}
+@media (max-width: 576px) {
+  .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-form .search-popup-submit {
+    padding: 15px 15px;
+  }
 }
 .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-form .search-popup-submit:hover {
   background: #1e2b37;
@@ -337,7 +351,7 @@ p {
   transition: all 0.3s ease;
 }
 .web_header .Header_main_menu .search_and_rs .search_box .search-popup .search-popup-form .search-popup-close:hover {
-  color: #2c3e50;
+  color: #0080ff;
   transform: rotate(90deg);
 }
 .web_header .Header_main_menu .search_and_rs .menu-toggle {
@@ -837,6 +851,9 @@ aside .widget-title {
   }
 }
 
+/* ============================================= */
+/*               Comments Section design             */
+/* ============================================= */
 .comment_cstm {
   margin: 3rem 0 0 0;
   padding: 2rem 0 0 0;
@@ -880,6 +897,10 @@ aside .widget-title {
   color: #666;
   margin-bottom: 1rem;
 }
+.comment_cstm .comment-list .comment .comment-meta a {
+  text-decoration: none;
+  color: inherit;
+}
 .comment_cstm .comment-list .comment .comment-content {
   line-height: 1.6;
 }
@@ -897,6 +918,10 @@ aside .widget-title {
 .comment_cstm .comment-respond .comment-reply-title {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+}
+.comment_cstm .comment-respond .comment-reply-title small a {
+  text-decoration: none;
+  padding-left: 0.8rem;
 }
 .comment_cstm .comment-respond .comment-form {
   display: grid;
@@ -1609,4 +1634,58 @@ aside ul li a:hover::after {
 }
 .web_post_wrapper .web_post_inner.pageWp .post_wrapper.itpage .post_content ul li::marker, .web_post_wrapper .web_post_inner.pageWp .post_wrapper.itpage .post_content ol li::marker {
   color: #3498db;
+}
+
+/* ============================================= */
+/*               archive-header design             */
+/* ============================================= */
+.archive-header {
+  padding: 20px 0px 0px 20px;
+}
+
+/* ============================================= */
+/*               Search Page Design             */
+/* ============================================= */
+.no-results-wrapper {
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+.no-results-wrapper .no-results-content .no-results-icon {
+  width: 64px;
+  height: 64px;
+  fill: none;
+  stroke: #ff6b6b;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 20px;
+}
+.no-results-wrapper .no-results-content .no-results-title {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+.no-results-wrapper .no-results-content .no-results-message {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.no-results-wrapper .no-results-content .no-results-action {
+  margin-top: 25px;
+}
+.no-results-wrapper .no-results-content .no-results-action .no-results-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #4a6cf7;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.no-results-wrapper .no-results-content .no-results-action .no-results-button:hover {
+  background: #3a5bd9;
 }/*# sourceMappingURL=main.css.map */
