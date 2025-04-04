@@ -1918,6 +1918,106 @@ aside{
   }
 
 }
+/* ============================================= */
+/*               Contact form Design             */
+/* ============================================= */
+/* Base Container */
+.wpcf7.js {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Name/Email Row */
+.webcontactW .nameEmail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.wpcf7-form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.wpcf7-form-control:focus {
+  border-color: #4a6cf7;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.1);
+}
+
+/* Textarea Specific */
+.wpcf7-textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Submit Button */
+.wpcf7-submit {
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.wpcf7-submit:hover {
+  background: #3a5bd9;
+}
+
+/* Spinner Animation */
+.wpcf7-spinner {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .webcontactW .nameEmail {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .textMassage {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wpcf7.js {
+    padding: 15px;
+  }
+  
+  .wpcf7-form-control {
+    padding: 10px 12px;
+  }
+  
+  .wpcf7-submit {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* Validation Styles (Keep CF7 Default Classes) */
+.wpcf7-not-valid-tip {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output {
+  border-color: #dc3545;
+}
 
 
 
